@@ -1,8 +1,8 @@
 from celery import Celery
 import consumer
 
-redis_url = 'redis://localhost:6379/0'
-app = Celery('consumer', broker=redis_url)  # take the celery app name
+app_name = 'consumer'  # take the celery app name
+app = Celery(app_name, broker=consumer.redis_url)
 
 # produce
 for i in range(100):
